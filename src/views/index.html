@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <title>Stylish To-Do List</title>
+    <style>
+/* Reset some default styles */
+body, h1 {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-color: #121212; /* Dark background color */
+    color: #fff; /* Text color */
+    font-family: Arial, sans-serif;
+}
+
+.container {
+    max-width: 400px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #1e1e1e; /* Slightly lighter background color */
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+}
+
+h1 {
+    text-align: center;
+    color: #61dafb; /* Bright blue header color */
+}
+
+.task-input {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+    background-color: #333; /* Dark input background */
+    color: #fff; /* Input text color */
+}
+
+.add-button {
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.add-button:hover {
+    background-color: #45a049; /* Slightly darker green on hover */
+}
+
+ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+li {
+    background-color: #333; /* Dark list item background */
+    margin: 10px 0;
+    padding: 10px;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.delete-button {
+    background-color: #f44336;
+    color: white;
+    border: none;
+    border-radius: 50%;
+    padding: 6px 10px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.delete-button:hover {
+    background-color: #d32f2f; /* Slightly darker red on hover */
+}
+
+
+
+
+
+        /* body {
+    font-family: Arial, sans-serif;
+    background-color: #f5f5f5;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+
+.container {
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    padding: 20px;
+    text-align: center;
+    max-width: 400px;
+}
+
+h1 {
+    color: #333;
+    font-size: 24px;
+    margin-bottom: 20px;
+}
+
+.input-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+input[type="text"] {
+    width: 70%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+button {
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 20px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+button:hover {
+    background-color: #45a049;
+}
+
+ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+li {
+    background-color: #f9f9f9;
+    margin: 10px 0;
+    padding: 10px;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.delete-button {
+    background-color: #f44336;
+    color: white;
+    border: none;
+    border-radius: 50%;
+    padding: 6px 10px;
+    cursor: pointer;
+}
+
+.delete-button:hover {
+    background-color: #d32f2f;
+} */
+
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Stylish To-Do List</h1>
+        <div class="input-container">
+            <input type="text" id="task" placeholder="Add a new task">
+            <button id="addTask">Add</button>
+        </div>
+        <ul id="taskList"></ul>
+    </div>
+    <script>document.addEventListener('DOMContentLoaded', function () {
+        const taskInput = document.getElementById("task");
+        const addTaskButton = document.getElementById("addTask");
+        const taskList = document.getElementById("taskList");
+    
+        addTaskButton.addEventListener("click", () => {
+            const taskText = taskInput.value.trim();
+    
+            if (taskText !== "") {
+                const listItem = document.createElement("li");
+                listItem.innerHTML = `
+                    <span>${taskText}</span>
+                    <button class="delete-button">✕</button>
+                `;
+    
+                listItem.querySelector(".delete-button").addEventListener("click", () => {
+                    listItem.remove();
+                });
+    
+                taskList.appendChild(listItem);
+                taskInput.value = "";
+            }
+        });
+    });
+    </script>
+</body>
+</html>
